@@ -7,6 +7,6 @@ namespace OdeToFood.Core.Interfaces
 {
 	public interface IRestaurantRepository
 	{
-		IEnumerable<Restaurant> GetAll();
+		IEnumerable<Restaurant> GetRestaurantsByName(string name);
 	}
 }

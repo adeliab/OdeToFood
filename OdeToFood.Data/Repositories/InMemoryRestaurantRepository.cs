@@ -23,9 +23,9 @@ namespace OdeToFood.Data.Repositories
 			};
 		}
 
-		public IEnumerable<Restaurant> GetAll()
+		public IEnumerable<Restaurant> GetRestaurantsByName(string name)
 		{
-			return _restaurants.OrderBy(r => r.Name);
+			return _restaurants.Where(r => string.IsNullOrEmpty(name) || r.Name.Contains(name, StringComparison.InvariantCultureIgnoreCase)).OrderBy(r => r.Name);
 		}
 	}
 }
