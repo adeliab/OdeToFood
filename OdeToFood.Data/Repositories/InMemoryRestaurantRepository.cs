@@ -10,11 +10,11 @@ namespace OdeToFood.Data.Repositories
 {
 	public class InMemoryRestaurantRepository : IRestaurantRepository
 	{
-		List<Restaurant> _restaurants;
+		List<Restaurant> restaurants;
 
 		public InMemoryRestaurantRepository()
 		{
-			_restaurants = new List<Restaurant>
+			restaurants = new List<Restaurant>
 			{
 				new Restaurant { Id = 1, Name = "Hakata Senpachi", Location = "Amsterdam", Cuisine = Cuisine.Japanese },
 				new Restaurant { Id = 2, Name = "Giuliano's", Location = "Den Haag", Cuisine = Cuisine.Italian },
@@ -23,9 +23,14 @@ namespace OdeToFood.Data.Repositories
 			};
 		}
 
+		public Restaurant GetById(int id)
+		{
+			return restaurants.SingleOrDefault(r => r.Id == id);
+		}
+
 		public IEnumerable<Restaurant> GetRestaurantsByName(string name)
 		{
-			return _restaurants.Where(r => string.IsNullOrEmpty(name) || r.Name.Contains(name, StringComparison.InvariantCultureIgnoreCase)).OrderBy(r => r.Name);
+			return restaurants.Where(r => string.IsNullOrEmpty(name) || r.Name.Contains(name, StringComparison.InvariantCultureIgnoreCase)).OrderBy(r => r.Name);
 		}
 	}
 }

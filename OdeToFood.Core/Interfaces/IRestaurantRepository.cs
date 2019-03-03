@@ -8,5 +8,6 @@ namespace OdeToFood.Core.Interfaces
 	public interface IRestaurantRepository
 	{
 		IEnumerable<Restaurant> GetRestaurantsByName(string name);
+		Restaurant GetById(int id);
 	}
 }
