@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using OdeToFood.Core.Interfaces;
 using OdeToFood.Core.Model.Entities;
+using System.Collections.Generic;
 
 namespace OdeToFood.Web.Pages.Restaurants
 {
-    public class ListModel : PageModel
+	public class ListModel : PageModel
     {
 		private readonly IConfiguration configuration;
 		private readonly IRestaurantRepository restaurantRepository;

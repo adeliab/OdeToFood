@@ -5,18 +5,18 @@ using OdeToFood.Core.Model.Entities;
 
 namespace OdeToFood.Web.Pages.Restaurants
 {
-	public class DetailModel : PageModel
+	public class EditModel : PageModel
     {
 		private readonly IRestaurantRepository restaurantRepository;
 
 		public Restaurant Restaurant { get; set; }
 
-		public DetailModel(IRestaurantRepository restaurantRepository)
+		public EditModel(IRestaurantRepository restaurantRepository)
 		{
 			this.restaurantRepository = restaurantRepository;
 		}
-
-		public IActionResult OnGet(int restaurantId)
+		
+        public IActionResult OnGet(int restaurantId)
         {
 			Restaurant = restaurantRepository.GetById(restaurantId);
 			if (Restaurant == null) return RedirectToPage("./NotFound");
