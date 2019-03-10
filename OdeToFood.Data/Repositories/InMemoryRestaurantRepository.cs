@@ -22,6 +22,11 @@ namespace OdeToFood.Data.Repositories
 			};
 		}
 
+		public int Commit()
+		{
+			return 0;
+		}
+
 		public Restaurant GetById(int id)
 		{
 			return restaurants.SingleOrDefault(r => r.Id == id);
@@ -30,6 +35,18 @@ namespace OdeToFood.Data.Repositories
 		public IEnumerable<Restaurant> GetRestaurantsByName(string name)
 		{
 			return restaurants.Where(r => string.IsNullOrEmpty(name) || r.Name.Contains(name, StringComparison.InvariantCultureIgnoreCase)).OrderBy(r => r.Name);
+		}
+
+		public Restaurant Update(Restaurant updatedRestaurant)
+		{
+			Restaurant restaurant = restaurants.SingleOrDefault(r => r.Id == updatedRestaurant.Id);
+			if (restaurant == null) return restaurant;
+
+			restaurant.Name = updatedRestaurant.Name;
+			restaurant.Location = updatedRestaurant.Location;
+			restaurant.Cuisine = updatedRestaurant.Cuisine;
+
+			return restaurant;
 		}
 	}
 }

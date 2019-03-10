@@ -11,7 +11,7 @@ namespace OdeToFood.Web.CompositionRoot
 	{
 		public static void ConfigureServices(IServiceCollection services)
 		{
-			services.AddTransient<IRestaurantRepository, InMemoryRestaurantRepository>();
+			services.AddSingleton<IRestaurantRepository, InMemoryRestaurantRepository>();
 		}
 	}
 }
