@@ -9,6 +9,7 @@ namespace OdeToFood.Core.Interfaces
 	{
 		IEnumerable<Restaurant> GetRestaurantsByName(string name);
 		Restaurant GetById(int id);
+		Restaurant Create(Restaurant newRestaurant);
 		Restaurant Update(Restaurant updatedRestaurant);
 		int Commit();
 	}

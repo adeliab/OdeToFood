@@ -27,6 +27,13 @@ namespace OdeToFood.Data.Repositories
 			return 0;
 		}
 
+		public Restaurant Create(Restaurant newRestaurant)
+		{
+			newRestaurant.Id = restaurants.Max(r => r.Id) + 1;
+			restaurants.Add(newRestaurant);
+			return newRestaurant;
+		}
+
 		public Restaurant GetById(int id)
 		{
 			return restaurants.SingleOrDefault(r => r.Id == id);
