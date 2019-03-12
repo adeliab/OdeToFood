@@ -1,9 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using OdeToFood.Core.Interfaces;
 using OdeToFood.Data.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace OdeToFood.Web.CompositionRoot
 {
